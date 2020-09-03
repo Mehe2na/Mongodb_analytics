@@ -83,13 +83,14 @@ Takes in the three required fields needed to add a user,
 '''
 def add_comment_to_movie(movieid, user, comment, date):
     MOVIE_COMMENT_CACHE_LIMIT = 10
-
+    last_update = datetime.now()
     comment_doc = {
         "name": user.name,
         "email": user.email,
         "movie_id": movieid,
         "text": comment,
-        "date": date
+        "date": date,
+        "last_update":last_update
     }
 
     movie = get_movie(movieid)
